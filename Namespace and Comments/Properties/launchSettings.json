@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Namespace and Comments": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
