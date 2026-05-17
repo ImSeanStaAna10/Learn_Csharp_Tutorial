@@ -14,7 +14,7 @@ using System.Collections;
     Types of comments:
         - Single-line comment //
         - Multi-line comment /* ... */
-
+        
 
 // ALIAS - used to differentiate same class names from different namespaces
 using NbaBanchero = Namespace_and_Comments.BasketballPlayers.NBA.Banchero;
@@ -44,8 +44,6 @@ namespace Namespace_and_Comments
             #region PBA PLAYERS
 
             var fajardo = new Fajardo();
-            var brownlee = new Brownlee();
-
             var banchero = new BasketballPlayers.PBA.Banchero();
             var pbaBanchero = new PbaBacnhero();
 
@@ -61,18 +59,39 @@ namespace Namespace_and_Comments
             #endregion
 
             Fruities eatFruits = new Fruities();
-            eatFruits.eat();
- 
+            eatFruits.eatFruits();
 
-            
+           
+            var brownlee = new Brownlee("Sean");
+            brownlee.Describe();
+
+           
+
+        }
+
+
+        class Fruities
+        {
+            string Fruit1 = "banana";
+            public void eatFruits()
+            {
+                Console.WriteLine($"I love eating {Fruit1}");
+            }
         }
     }
+  
 
-    class Fruities
-    {
-        public void eat()
+
+       class Veggies
         {
-            Console.WriteLine("Eating fruits...");
-        }
+            public string vegetable1 { get; set; } = "lettuce";
+            public void EatVeggies()
+            {
+                Console.WriteLine($"I Love to eat {vegetable1}");
+            }
+            public override string ToString()
+            {
+                return vegetable1;
+            }
     }
 }

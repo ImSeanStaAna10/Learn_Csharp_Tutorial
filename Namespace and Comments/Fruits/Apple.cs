@@ -8,7 +8,7 @@ namespace Namespace_and_Comments.Fruits
     {
         // PROPERTIES (data of the apple)
         public string Color { get; set; }
-  public double WeightInGrams { get; set; }
+        public double WeightInGrams { get; set; }
         public bool IsRipe { get; set; }
 
         // CONSTRUCTOR - sets default values when object is created
