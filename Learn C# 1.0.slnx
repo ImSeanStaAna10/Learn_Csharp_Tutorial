@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="Inputs_Expression_Operators/Inputs_Expression_Operators.csproj" Id="575543ef-48ed-49dd-88c7-3c0ba70ec642" />
   <Project Path="Learn C# 1.0/Learn C# 1.0.csproj" />
   <Project Path="Namespace and Comments/Namespace and Comments.csproj" Id="2777084a-aaf4-4901-9ec4-c593a4a307a3" />
   <Project Path="Variables&amp;DataTypes/Variables&amp;DataTypes.csproj" Id="a96eb30d-1d7e-4fa5-82e1-13c7bc236d73" />

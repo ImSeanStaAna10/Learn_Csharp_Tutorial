@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Inputs_Expression_Operators": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

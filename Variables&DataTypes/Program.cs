@@ -181,7 +181,7 @@ namespace VariablesAndDatatypes
 
             // TOSTRING - converting int to string using ToString method and using it in a concatenation
             int number = 10;
-            var stringNumber = number.ToString(); // converting int to string using ToString method
+            var stringNumber = number.ToString(); // converting int     to string using ToString method
             string resultString = stringNumber; // using the converted string in a concatenation
             Console.WriteLine("Conversion of int to string using ToString(): " + resultString);
 

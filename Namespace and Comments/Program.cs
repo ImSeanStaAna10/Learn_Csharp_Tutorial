@@ -79,19 +79,33 @@ namespace Namespace_and_Comments
             }
         }
     }
-  
 
 
-       class Veggies
+
+    class Veggies
+    {
+        // PROPERTY
+        // Stores the value/name of the vegetable.
+        // { get; set; } allows the value to be read and changed.
+        // "lettuce" is the default value.
+        public string vegetable1 { get; set; } = "lettuce";
+
+        // METHOD
+        // A behavior/action of the Veggies class.
+        // This method displays a message using the vegetable1 property.
+        public void EatVeggies()
         {
-            public string vegetable1 { get; set; } = "lettuce";
-            public void EatVeggies()
-            {
-                Console.WriteLine($"I Love to eat {vegetable1}");
-            }
-            public override string ToString()
-            {
-                return vegetable1;
-            }
+            Console.WriteLine($"I Love to eat {vegetable1}");
+        }
+
+        // TOSTRING() METHOD OVERRIDE
+        // Overrides the default ToString() behavior of objects.
+        // Instead of displaying:
+        // Namespace_and_Comments.Veggies
+        // it will now display the value of vegetable1.
+        public override string ToString()
+        {
+            return vegetable1;
+        }
     }
 }
