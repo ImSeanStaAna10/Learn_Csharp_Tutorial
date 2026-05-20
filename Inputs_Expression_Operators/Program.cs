@@ -138,14 +138,13 @@ namespace Inputs_Expressions_Operators
             #endregion
 
             #region --EXPRESSIONS & OPERATORS--
-
             #region -- ASSIGNMENT OPERATORS--
             var a = 10;
             a = 20; // assignment operator
             Console.WriteLine("Assignment Operator: " + a);
             #endregion
 
-            Console.Write("***********ARITHMETIC OPERATORS *********************\n");
+            Console.Write("*********** ARITHMETIC OPERATORS *********************\n");
             #region --ARITHMETIC OPERATORS--
             // ADDITION
             var add1 = 10;
@@ -197,8 +196,7 @@ namespace Inputs_Expressions_Operators
 
 
             #endregion
-
-            Console.Write("***********BOOLEAN, COMPARISON, EQUALITY OPERATORS *********************\n");
+            Console.Write("*********** BOOLEAN, COMPARISON, EQUALITY OPERATORS *********************\n");
             #region --BOOLEAN , COMPARISON , EQUALITY OPERATORS--
             var isTrue = true;
             var isFalse = false;
@@ -222,7 +220,7 @@ namespace Inputs_Expressions_Operators
             var testLessThanOrEqual = eq1 <= eq2; // LESS THAN OR EQUAL TO operator - returns true if the left operand is less than or equal to the right operand
 
             #endregion
-
+            Console.Write("*********** COALESCING OPERATOR *********************\n");
             #region -- COALESCING OPERATOR -- 
             Console.Write("*********** COALESCING OPERATOR *********************\n");
             var sampleString= "HELLO WORLD";
@@ -233,8 +231,7 @@ namespace Inputs_Expressions_Operators
             Console.WriteLine("Coalescing Operator Example 2: " + sampleResult2);
 
             #endregion
-
-
+            Console.Write("*********** UNARY OPERATOR *********************\n");
             #region -- UNARY OPERATORS --
             Console.WriteLine("****************** UNARY OPERATORS");
             var trueValue = true;
@@ -279,7 +276,7 @@ namespace Inputs_Expressions_Operators
 
 
             #endregion
-
+            Console.Write("*********** TERNARY OPERATOR *********************\n");
             #region -- TERNARY OPERATOR --
 
             Console.WriteLine("*********** TERNARY OPERATOR *********************\n");
@@ -306,6 +303,8 @@ namespace Inputs_Expressions_Operators
             Console.WriteLine("\n");
             #endregion
 
+
+            Console.Write("*********** SAMPLE ACTIVITY *********************\n");
             #region --EXAMPLE ACT 1--
             Console.WriteLine("****** EXAMPLE ********");
 
@@ -344,7 +343,6 @@ namespace Inputs_Expressions_Operators
             }
 
             #endregion
-
 
             #endregion
 

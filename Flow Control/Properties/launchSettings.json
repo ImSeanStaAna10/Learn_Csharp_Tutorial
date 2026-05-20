@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Flow Control": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
