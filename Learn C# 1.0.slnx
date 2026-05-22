@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="Array, Enumerable, Collection and List/Array, Enumerable, Collection and List.csproj" Id="cb471746-5eac-4c05-bfaa-8592180be5ef" />
   <Project Path="Flow Control/Flow Control.csproj" Id="d73a7b62-35d9-4a29-a0dc-71558f552711" />
   <Project Path="Inputs_Expression_Operators/Inputs_Expression_Operators.csproj" Id="575543ef-48ed-49dd-88c7-3c0ba70ec642" />
   <Project Path="Learn C# 1.0/Learn C# 1.0.csproj" />

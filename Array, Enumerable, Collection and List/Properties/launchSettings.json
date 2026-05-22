@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Array, Enumerable, Collection and List": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
