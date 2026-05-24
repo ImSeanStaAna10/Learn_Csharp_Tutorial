@@ -36,7 +36,6 @@ namespace Array_Enumerable_Collection_List
     {
         static void Main()
         {
-
             #region ====================== ARRAY ======================
 
             // ======================================================
@@ -276,10 +275,18 @@ namespace Array_Enumerable_Collection_List
             IEnumerable<string> enumCountries = countries;  // convert array to IEnumerable
             // enumCountries[0] = "America"; bawal kasi walang indexing at read-only
 
-            Console.WriteLine("\n----- ENUMERABLE -----");
+            var animeMC = new[] {"Goku" , "Luffy" , "Ichigo" , "Naruto" };
+            IEnumerable<string> animeChar = animeMC;
+           
+            Console.WriteLine("\n----- ENUMERABLE COUNTRIES -----");
             foreach (var country in enumCountries)
             {
                 Console.WriteLine(country);
+            }
+            Console.WriteLine("\n----- ENUMERABLE ANIME MC-----");
+            foreach (var animeMainChar in animeChar)
+            {
+                Console.WriteLine(animeMainChar);
             }
 
             #endregion
@@ -296,20 +303,26 @@ namespace Array_Enumerable_Collection_List
 
 
             ICollection<string> colCountries = new List<string>(countries); // convert array to ICollection via List
-
-
             colCountries.Add("Australia"); // adding elements
             colCountries.Add("America"); // adding elements
             colCountries.Remove("China"); // removing element
-
             // colCountries[2] = "Sample"; bawal kasi walang indexing
-
-            Console.WriteLine("**************************");
-
+            Console.WriteLine("------COLLECTION COUNTRIES--------");
             foreach (var country in colCountries)
             {
                 Console.WriteLine(country);
             }
+
+            Console.WriteLine("------COLLECTION ANIME--------");
+            ICollection<string> colAnimeMc = new List<string>(animeMC);
+            colAnimeMc.Add("Taki");
+            foreach (var animeMc in colAnimeMc)
+            {
+                Console.WriteLine(animeMc);
+            }
+
+
+
 
             #endregion
 
@@ -350,6 +363,17 @@ namespace Array_Enumerable_Collection_List
             for (var index = 0; index < listCountriesNew.Count; index++)
             {
                 Console.WriteLine($"{index}: {listCountriesNew[index]}");
+            }
+
+
+            Console.WriteLine("\n----- LIST SAMPLE 2 -----");
+            var listNbaPlayer = new List<string>() { "kd", "Steph" };
+            listNbaPlayer[0] = "Lebron James";
+            listNbaPlayer.Add("Kyrie");
+            for (var index2 =0; index2 < listNbaPlayer.Count; index2++)
+            {
+                Console.WriteLine($"{index2}: {listNbaPlayer[index2]}");
+        
             }
 
             #endregion
