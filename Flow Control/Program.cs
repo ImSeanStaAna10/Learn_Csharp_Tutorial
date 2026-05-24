@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 
 // ======================================================
 // FLOW CONTROL IN C#
@@ -27,6 +28,8 @@ namespace Flow_Control
         public static void Main(String[] args)
         {
 
+            foodOrderSystem order = new foodOrderSystem();
+            order.selectMenu();
             // ======================================================
             // CONDITIONAL STATEMENTS
             // ======================================================
@@ -308,8 +311,6 @@ namespace Flow_Control
 
             #endregion
 
-
-
             #region -- ACTIVITY: SIMPLE FOOD ORDER SYSTEM --
 
             // ======================================================
@@ -324,80 +325,170 @@ namespace Flow_Control
             //
             // ======================================================
 
+            //bool isRunning = true;
+            //double totalBill = 0;
+
+            //while (isRunning)
+            //{
+            //    Console.WriteLine("\n==================================");
+            //    Console.WriteLine("      SIMPLE FOOD ORDER SYSTEM");
+            //    Console.WriteLine("==================================");
+
+            //    Console.WriteLine("[1] Burger  - 50 Pesos");
+            //    Console.WriteLine("[2] Fries   - 35 Pesos");
+            //    Console.WriteLine("[3] Drinks  - 25 Pesos");
+            //    Console.WriteLine("[4] View Total");
+            //    Console.WriteLine("[5] Exit");
+
+            //    Console.Write("\nEnter Choice: ");
+            //    var choice = Console.ReadLine();
+
+            //    Console.WriteLine();
+
+            //    switch (choice)
+            //    {
+            //        case "1":
+            //            Console.Write("Enter Quantity: ");
+            //            int burgerQty = Convert.ToInt32(Console.ReadLine());
+
+            //            double burgerTotal = burgerQty * 50;
+            //            totalBill += burgerTotal;
+
+            //            Console.WriteLine($"Subtotal: {burgerTotal} Pesos");
+            //            break;
+
+            //        case "2":
+            //            Console.Write("Enter Quantity: ");
+            //            int friesQty = Convert.ToInt32(Console.ReadLine());
+
+            //            double friesTotal = friesQty * 35;
+            //            totalBill += friesTotal;
+
+            //            Console.WriteLine($"Subtotal: {friesTotal} Pesos");
+            //            break;
+
+            //        case "3":
+            //            Console.Write("Enter Quantity: ");
+            //            int drinksQty = Convert.ToInt32(Console.ReadLine());
+
+            //            double drinksTotal = drinksQty * 25;
+            //            totalBill += drinksTotal;
+
+            //            Console.WriteLine($"Subtotal: {drinksTotal} Pesos");
+            //            break;
+
+            //        case "4":
+            //            Console.WriteLine("==================================");
+            //            Console.WriteLine($"TOTAL BILL: {totalBill} Pesos");
+            //            Console.WriteLine("==================================");
+            //            break;
+
+            //        case "5":
+            //            Console.WriteLine("Exiting Program...");
+            //            Console.WriteLine($"Final Bill: {totalBill} Pesos");
+            //            isRunning = false;
+            //            break;
+
+            //        default:
+            //            Console.WriteLine("INVALID MENU OPTION");
+            //            break;
+            //    }
+            //}
+
+            //Console.WriteLine("\nProgram Terminated...");
+            #endregion
+        }
+             #region -- FOOD ORDER SYSTEM(MY APPROACH) --
+        class foodOrderSystem
+        {
             bool isRunning = true;
             double totalBill = 0;
 
-            while (isRunning)
+            public void selectMenu()
             {
-                Console.WriteLine("\n==================================");
-                Console.WriteLine("      SIMPLE FOOD ORDER SYSTEM");
-                Console.WriteLine("==================================");
-
-                Console.WriteLine("[1] Burger  - 50 Pesos");
-                Console.WriteLine("[2] Fries   - 35 Pesos");
-                Console.WriteLine("[3] Drinks  - 25 Pesos");
-                Console.WriteLine("[4] View Total");
-                Console.WriteLine("[5] Exit");
-
-                Console.Write("\nEnter Choice: ");
-                var choice = Console.ReadLine();
-
-                Console.WriteLine();
-
-                switch (choice)
+                while (isRunning)
                 {
-                    case "1":
-                        Console.Write("Enter Quantity: ");
-                        int burgerQty = Convert.ToInt32(Console.ReadLine());
 
-                        double burgerTotal = burgerQty * 50;
-                        totalBill += burgerTotal;
+                    Console.WriteLine("[1] Burger  - 50 Pesos");
+                    Console.WriteLine("[2] Fries   - 35 Pesos");
+                    Console.WriteLine("[3] Drinks  - 25 Pesos");
+                    Console.WriteLine("[4] View Total");
+                    Console.WriteLine("[5] Exit");
 
-                        Console.WriteLine($"Subtotal: {burgerTotal} Pesos");
+                    Console.Write("\nEnter your Choice:");
+                    var choice = Console.ReadLine();
+                    var menuChoice = Convert.ToInt32(choice);
+
+                    switch (menuChoice)
+                    {
+                        case 1:
+                            menu1();
                         break;
 
-                    case "2":
-                        Console.Write("Enter Quantity: ");
-                        int friesQty = Convert.ToInt32(Console.ReadLine());
+                        case 2:
+                            menu2();
+                            break;
 
-                        double friesTotal = friesQty * 35;
-                        totalBill += friesTotal;
+                        case 3:
+                            menu3();
+                            break;
 
-                        Console.WriteLine($"Subtotal: {friesTotal} Pesos");
-                        break;
+                        case 4:
+                            menu4();
+                            break;
 
-                    case "3":
-                        Console.Write("Enter Quantity: ");
-                        int drinksQty = Convert.ToInt32(Console.ReadLine());
+                        case 5:
+                            menu5();
+                            break;
+                        default:
+                            Console.WriteLine("INVALID CHOICE");
+                            break;
 
-                        double drinksTotal = drinksQty * 25;
-                        totalBill += drinksTotal;
-
-                        Console.WriteLine($"Subtotal: {drinksTotal} Pesos");
-                        break;
-
-                    case "4":
-                        Console.WriteLine("==================================");
-                        Console.WriteLine($"TOTAL BILL: {totalBill} Pesos");
-                        Console.WriteLine("==================================");
-                        break;
-
-                    case "5":
-                        Console.WriteLine("Exiting Program...");
-                        Console.WriteLine($"Final Bill: {totalBill} Pesos");
-                        isRunning = false;
-                        break;
-
-                    default:
-                        Console.WriteLine("INVALID MENU OPTION");
-                        break;
+                    }
                 }
+                Console.WriteLine("PROGRAM TERMINATED.......");
             }
 
-            Console.WriteLine("\nProgram Terminated...");
+            public void menu1()
+            {
+                Console.Write("Enter Quantity: ");
+                int burgerQty = Convert.ToInt32(Console.ReadLine());
+                double burgerTotal = burgerQty * 50;
+                totalBill += burgerTotal;
+                Console.WriteLine($"Subtotal: {burgerTotal} Pesos");
+            }
 
+            public void menu2()
+            {
+                Console.Write("Enter Quantity: ");
+                int friesQty = Convert.ToInt32(Console.ReadLine());
+                double friesTotal = friesQty * 35;
+                totalBill += friesTotal;
+                Console.WriteLine($"Subtotal: {friesTotal} Pesos");
+
+            }
+            public void menu3()
+            {
+                Console.Write("Enter Quantity: ");
+                int drinksQty = Convert.ToInt32(Console.ReadLine());
+                double drinksTotal = drinksQty * 25;
+                totalBill += drinksTotal;
+                Console.WriteLine($"Subtotal: {drinksTotal} PESOS");
+            }
+
+            public void menu4()
+            {
+                Console.WriteLine($"TOTAL BILL IS: {totalBill} PESOS!");
+
+            }
+
+            public void menu5()
+            {
+                Console.WriteLine("Exiting the program");
+                Console.WriteLine($"Your total bill is: {totalBill} PESOS");
+                isRunning = false;
+            }
             #endregion
         }
-
     }
 }

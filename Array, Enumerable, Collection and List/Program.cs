@@ -228,97 +228,84 @@ namespace Array_Enumerable_Collection_List
             // SAMPLE ARRAY EXAMPLES
             // ======================================================
 
-            #region -- SAMPLE ARRAY --
 
-            // ======================================================
-            // IMPLICIT TYPE (SHORTCUT)
-            // ======================================================
-
-            Console.WriteLine("\n************** IMPLICIT TYPE EXAMPLE **************");
-
-            var names = new[]
-            {
-            "Sean",
-            "Chandrick",
-            "Sta Ana"
-        };
-
-            Console.WriteLine("\n----- Before Update -----");
-
-            foreach (var myName in names)
-            {
-                Console.WriteLine(myName);
-            }
-
-            // Reassign specific index
-            names[0] = "Seansaints";
-
-            Console.WriteLine("\n----- After Update -----");
-
-            foreach (var newName in names)
-            {
-                Console.WriteLine(newName);
-            }
-
-            // ======================================================
-            // EXPLICIT TYPE (NON-SHORTCUT)
-            // ======================================================
-
-            Console.WriteLine("\n************** EXPLICIT TYPE EXAMPLE **************");
-
-            string[] fruits = new string[]
-            {
-            "apple",
-            "banana",
-            "orange"
-            };
-
-            Console.WriteLine("\n----- Before Update -----");
-
-            foreach (string myFruit in fruits)
-            {
-                Console.WriteLine(myFruit);
-            }
-
-            // Update specific index
-            fruits[2] = "watermelon";
-
-            Console.WriteLine("\n----- After Update -----");
-
-            foreach (string myFruit in fruits)
-            {
-                Console.WriteLine(myFruit);
-            }
-
-            Console.WriteLine($"\nFruit in index 2: {fruits[2]}");
 
             #endregion
 
+            #region ======== ENUMERABLE, COLLECTION, LIST (C# COLLECTION TYPES) =====================
+            // ======================================================
+            // ENUMERABLE, COLLECTION, LIST (C# COLLECTION TYPES)
+            // ======================================================
+       
 
-            #region -- ENUMERABLE , COLLECTION , LIST --
+
+            /*
+            ======================================================
+            C# COLLECTION TYPES OVERVIEW
+            ======================================================
+
+            1. IEnumerable<T>
+               - READ-ONLY at forward-only access lang
+               - Pwede lang i-loop gamit foreach
+               - Hindi pwede i-modify (no Add, Remove, Update)
+               - Walang indexing ([ ])
+               - Best for: reading or iteration lang
+
+            2. ICollection<T>
+               - Mas flexible kaysa IEnumerable
+               - Pwede mag Add, Remove, Count
+               - Wala pa ring indexing support ([ ])
+               - Best for: basic manipulation ng collection
+
+            3. List<T>
+               - Pinaka flexible at commonly used
+               - Pwede Add, Remove, Insert, Update, Indexing
+               - Full control sa data
+               - Best for: dynamic and editable data
+            */
+
             #region -- ENUMERABLE --
 
-            //enumerable is READ ONLY  reassigning is not allowerd
-            var countries = new[] { "Philippines", "japan", "Korea", "China" };
-            IEnumerable<string> enumCountries = countries;
-            //enumCountries[0] = "America"; - NOT ALLOWED
-            // access it using for each
-            Console.WriteLine("\n-----ENUMERABLE-----------");
-            foreach (var country in countries)
+            #region Description
+            // IEnumerable is READ-ONLY at forward-only lang
+            // Pwede mo lang siya i-loop gamit foreach
+            // Hindi mo siya pwedeng i-edit or i-index
+            #endregion
+
+            var countries = new[] { "Philippines", "Japan", "Korea", "China" };
+            IEnumerable<string> enumCountries = countries;  // convert array to IEnumerable
+            // enumCountries[0] = "America"; bawal kasi walang indexing at read-only
+
+            Console.WriteLine("\n----- ENUMERABLE -----");
+            foreach (var country in enumCountries)
             {
                 Console.WriteLine(country);
             }
+
             #endregion
 
-
             #region -- COLLECTION --
-            Console.WriteLine("\n-----COLLECTION-----------");
-            ICollection<string> colCountries = new List<string>(countries);
-            colCountries.Add("Australia");
-            colCountries.Add("America");
-            colCountries.Remove("China");
+
+            #region Description
+            // ICollection mas flexible kaysa IEnumerable
+            // Pwede mag Add at Remove
+            // Pero wala pa ring indexing ([ ])
+            #endregion
+
+            Console.WriteLine("\n----- COLLECTION -----");
+
+
+            ICollection<string> colCountries = new List<string>(countries); // convert array to ICollection via List
+
+
+            colCountries.Add("Australia"); // adding elements
+            colCountries.Add("America"); // adding elements
+            colCountries.Remove("China"); // removing element
+
+            // colCountries[2] = "Sample"; bawal kasi walang indexing
+
             Console.WriteLine("**************************");
-            //colCountries[2] = "Sample"; - di pwede mag access ng index sa collection
+
             foreach (var country in colCountries)
             {
                 Console.WriteLine(country);
@@ -326,36 +313,47 @@ namespace Array_Enumerable_Collection_List
 
             #endregion
 
-
-
             #region -- LIST --
-            var listCountries = new List<string>(countries); // with inital value from array
-            var listInitCountries = new List<string>() // with inital value
+
+            #region Description
+            // List<T> pinaka powerful sa tatlo
+            // Pwede Add, Remove, Update, Insert, at Indexing
+            // Full control sa elements
+            #endregion
+
+            var listCountries = new List<string>(countries); // from array
+
+            var listInitCountries = new List<string>()
             {
-                "Phillippines",
+                "Philippines",
                 "USA"
             };
 
             var listCountriesNew = new List<string>();
+
+            // adding single items
             listCountriesNew.Add("Philippines");
             listCountriesNew.Add("USA");
+
+            // adding multiple items
             listCountriesNew.AddRange(new[] { "Canada", "Australia" });
-            listCountriesNew.Remove("Philipines");
+
+            // remove item (check spelling dapat exact match)
+            listCountriesNew.Remove("Philippines");
+
+            // update using index
             listCountriesNew[0] = "America";
 
-            Console.WriteLine("\n-----LIST -----------");
+            Console.WriteLine("\n----- LIST -----");
 
+            // looping using for loop (may index access)
             for (var index = 0; index < listCountriesNew.Count; index++)
             {
                 Console.WriteLine($"{index}: {listCountriesNew[index]}");
-            };
-
-
-            #endregion
-
-
+            }
 
             #endregion
+
             #endregion
 
         }
