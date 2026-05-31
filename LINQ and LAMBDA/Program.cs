@@ -165,15 +165,15 @@ namespace LINQ_and_LAMBDA
             Console.WriteLine();
             var students = new List<Student>()
             {
-               new Student("Luffy",17,1),
-               new Student("Sabo",19,2),
-               new Student("Ace",22,1)
+               new Student("Luffy",22,1),
+               new Student("Sabo",25,2),
+               new Student("Ace",30,1)
             };
 
             var sections = new List<Section>()
             {
-                new Section("Pirate" ,  1),
-                new Section("Revolutionary", 2)
+                new Section(1, "Pirate"),
+                new Section(1 , "revolutionary")
 
             };
 
@@ -181,12 +181,12 @@ namespace LINQ_and_LAMBDA
             Console.WriteLine("**************** LINQ VERSION *******************");
             //linq
             var query = from section in sections // Kunin ang bawat section mula sa sections.
-                        join student in students  on section.Grade equals student.Grade // I-match ang bawat section sa students. Pag pareho ang Grade ng section and student, pagsamahin sila. 
-                        where student.Age < 25 // Kunin lang ang students na mas mababa sa 25 years old.
+                        join student in students on section.Grade equals student.Grade // I-match ang bawat section sa students. Pag pareho ang Grade ng section and student, pagsamahin sila.  ON means "condition of the join"
+                        where student.Age > 20 // Kunin lang ang students na mas mababa sa 25 years old.
                         orderby student.Age, student.Grade // I-sort ayon sa Age, kapag pareho ang Age, saka gamitin ang Grade.
                         select new // Gumawa ng bagong object.
                         {
-                            section.SectionName,
+                            section.SectionName, // anonymous object
                             StudentName = student.Name,
                         };
 
@@ -194,30 +194,29 @@ namespace LINQ_and_LAMBDA
             {
                 Console.WriteLine($"Section: {sectionAndStudent.SectionName}, Student Name: {sectionAndStudent.StudentName}");
             }
-
             #endregion
 
 
 
 
             #region -- LAMBDA --
-            
+
             Console.WriteLine("**************** LAMBDA VERSION ***********************");
-            var lambdaQuerys = sections // start with section
-               .Join( // join section in other collection
-                students.Where(student => student.Age < 25), // first parameter,  join sa student na may age na < 25
-                section => section.Grade, // second parameter, sa section grade ang gagamiting key
-                student => student.Grade,// third parameter, sa student grade din gagamitin na key
-                (section, student) => new // pag may matching grade gumawa ng new object
-                {
-                    section.SectionName,
-                    StudentName = student.Name,
-                    student.Age,
-                    student.Grade
-                } 
-                )
-               .OrderBy(student => student.Age) // I-sort ko ang result gamit ang Age.
-               .ThenBy(student => student.Grade); // Kapag pareho ang Age, Grade naman ang gamitin.
+            var lambdaQuerys = sections // Magsimula sa listahan ng sections
+                             .Join( // I-join ang students sa bawat section gamit ang Grade
+                              students.Where(student => student.Age > 20), // Isama lang ang students na age below 25
+                              section => section.Grade, // Grade ng section
+                              student => student.Grade, // Grade ng student
+                              (section, student) => new // Kapag pareho ang Grade, pagsamahin ang section at student
+                              {
+                                  section.SectionName,
+                                  StudentName = student.Name,
+                                  student.Age,
+                                  student.Grade
+                                  }
+                              )
+                              .OrderBy(student => student.Age) // I-sort ayon sa Age
+                              .ThenBy(student => student.Grade); // Kapag pareho ang Age, Grade naman ang basehan   
 
             foreach (var sectionAndStudent in lambdaQuerys)
             {
@@ -239,7 +238,7 @@ namespace LINQ_and_LAMBDA
         public int Age { get; set; }
         public int Grade { get; set; }
 
-        public Student(string name, int age, int grade)
+        public Student(string name, int age, int grade) // constuctor
         {
             Name = name;
             Age = age;
@@ -248,13 +247,16 @@ namespace LINQ_and_LAMBDA
     }
     public class Section
     {
-        public string SectionName { get; set; }
-        public int Grade {get; set;  }
 
-        public Section(string sectionName, int grade)
+        public int Grade { get; set; }
+        public string SectionName { get; set; } // constructor
+     
+
+        public Section(int grade, string sectionName)
         {
-            SectionName = sectionName;
             Grade = grade;
+            SectionName = sectionName;
+        
         }
     }
     #endregion
