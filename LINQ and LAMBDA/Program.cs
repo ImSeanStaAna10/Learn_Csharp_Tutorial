@@ -36,6 +36,8 @@ namespace LINQ_and_LAMBDA
             {
                 Console.WriteLine(even);
             }
+
+
                 
             Console.WriteLine("**********************");
 
@@ -158,7 +160,6 @@ namespace LINQ_and_LAMBDA
 
             #endregion
 
-
             #region -- JOINS --
 
             Console.WriteLine("********* JOINS *******************");
@@ -173,7 +174,7 @@ namespace LINQ_and_LAMBDA
             var sections = new List<Section>()
             {
                 new Section(1, "Pirate"),
-                new Section(1 , "revolutionary")
+                new Section(2 , "revolutionary")
 
             };
 
@@ -226,7 +227,50 @@ namespace LINQ_and_LAMBDA
             #endregion
             #endregion
 
+            #region -- GROUPINGS --
 
+
+            Console.WriteLine("********* GROUPINGS *******************");
+            var cars = new List<Cars>()
+            {
+                new Cars("Toyota", "Red", "Corolla" , 2010),
+                new Cars("Honda" , "Red", "Vios", 2009),
+                new Cars("Honda" , "Red", "Vios", 2009),
+                new Cars("Honda" , "Red", "Vios", 2009),
+            };
+
+            #region -- LINQ -- 
+
+            Console.WriteLine("********* LINQ *******************");
+            var groupLinq = from car in cars
+                            group car by car.modelYear into carModelYear
+                            select new carGroup{ ModelYear = carModelYear.Key, Count = carModelYear.Count() };
+
+            foreach (var carModelYear in groupLinq)
+            {
+                Console.WriteLine($"Year: {carModelYear.ModelYear}, Count: {carModelYear.Count}");
+            }
+
+            #region -- LAMBDA --
+            Console.WriteLine("********* LINQ *******************");
+          var lambdaGroup = cars.GroupBy(car => car.modelYear, car  =>car) // I-group ang mga cars base sa modelYear
+                                .Select(group => new carGroup // Para sa bawat grupo, gumawa ng bagong carGroup object
+                                {
+                                    ModelYear = group.Key, // Ang ModelYear ay ang key ng grupo (modelYear)
+                                    Count = group.Count() // Ang Count ay bilang ng mga cars sa grupo
+                                });
+
+            foreach (var carModelYear in lambdaGroup)
+            {
+                Console.WriteLine($"Year: {carModelYear.ModelYear}, Count: {carModelYear.Count}");
+            }
+            #endregion
+
+            #endregion
+
+
+
+            #endregion
         }
     }
 
@@ -259,5 +303,31 @@ namespace LINQ_and_LAMBDA
         
         }
     }
+
+    public class Cars
+    {
+        public string Brand { get; set; }
+        public string Color { get; set; }
+        public string carName { get; set; }
+
+       public int modelYear { get; set; }
+
+        public  Cars(string brand, string color, string name, int model) // constructor
+        {
+            Brand = brand;
+            Color = color;
+            carName = name;
+            modelYear = model;
+        }
+
+    };
+
+    public class carGroup
+    {
+        public int ModelYear { get; set; }
+        public int Count { get; set; }
+    }
+
+   
     #endregion
 }
