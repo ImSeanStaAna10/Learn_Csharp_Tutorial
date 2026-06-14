@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "String, DateTime, Nullable & Enumeration": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

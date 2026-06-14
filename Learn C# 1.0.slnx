@@ -5,5 +5,6 @@
   <Project Path="Learn C# 1.0/Learn C# 1.0.csproj" />
   <Project Path="LINQ and LAMBDA/LINQ and LAMBDA.csproj" Id="4e711773-0c18-416f-ad62-d67e49a5d9bc" />
   <Project Path="Namespace and Comments/Namespace and Comments.csproj" Id="2777084a-aaf4-4901-9ec4-c593a4a307a3" />
+  <Project Path="String, DateTime, Nullable &amp; Enumeration/String, DateTime, Nullable &amp; Enumeration.csproj" Id="3dbffdad-b5ba-41a0-a339-708bc7aa7601" />
   <Project Path="Variables&amp;DataTypes/Variables&amp;DataTypes.csproj" Id="a96eb30d-1d7e-4fa5-82e1-13c7bc236d73" />
 </Solution>
