@@ -7,6 +7,7 @@ namespace Class__Struct_and_Delegate
     internal class Person
     {
         #region -- FIELDS --
+
         // fields lagayan ng variables na naghohold ng data
         // Private field na nagho-hold ng value ng first name.
         // Hindi siya directly accessible sa labas ng class (encapsulation).
@@ -15,7 +16,6 @@ namespace Class__Struct_and_Delegate
         #endregion
 
         #region -- PROPERTIES--
-
         /*
          * NAGBIBIGAY NG CONTROLLED ACCESS SA FIELDS
          Property (FistName) na nagbibigay ng controlled access sa private field na _firstName.
