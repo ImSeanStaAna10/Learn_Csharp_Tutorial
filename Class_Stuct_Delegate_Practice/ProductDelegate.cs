@@ -4,5 +4,5 @@ using System.Text;
 
 namespace Class_Stuct_Delegate_Practice
 {
-    public delegate int ProductSaleActionDelegate(Product product); 
+    public delegate int ProductActionDelegate(Product product); 
 }

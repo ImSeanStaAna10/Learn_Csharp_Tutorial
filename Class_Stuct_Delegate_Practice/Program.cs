@@ -23,10 +23,18 @@ namespace Class_Stuct_Delegate_Practice
 
             Console.WriteLine();
 
+            //INSTANCE OF PRODUCT SERVICE CLASS
+            ProductService service = new ProductService();
+
+            //SUBSCRIBE TO EVENT
+            store.onProductDeleted += service.onDeleteProduct; 
+            store.onProductSold += service.onProductSold;
+
+
             // DELETE PRODUCT
             Console.WriteLine();
-            ProductService service = new ProductService();
-            store.DeleteProduct(milk,  service.DeleteProductService);
+          
+            store.DeleteProduct(bread, service.DeleteProductService); // USING DELAGATE
 
             //SHOW ALL PRODUCT
             Console.WriteLine();
@@ -34,11 +42,14 @@ namespace Class_Stuct_Delegate_Practice
 
             //SELL PRODUCT
             Console.WriteLine();
-            store.SellProduct("bread" , service.SoldProductService);
+            store.SellProduct("crakers" , service.SoldProductService); // USING DELEGATE
+            store.SellProduct("Milk", service.SoldProductService);
 
             //SHOW REMAINING PRODUCT
             Console.WriteLine();
             store.ShowAllProduct();
+
+      
         }
     }
 } 
