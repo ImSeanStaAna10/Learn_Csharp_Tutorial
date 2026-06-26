@@ -28,11 +28,11 @@ namespace Class_Stuct_Delegate_Practice
             Console.WriteLine($"Added Product: {product.PrdName}");
         }
 
-        public void DeleteProduct(Product product , ProductSaleActionDelegate action)
+        public void DeleteProduct(Product product, ProductSaleActionDelegate action)
         {
             products.Remove(product);
             action(product);
-           
+
         }
 
         public void ShowAllProduct()

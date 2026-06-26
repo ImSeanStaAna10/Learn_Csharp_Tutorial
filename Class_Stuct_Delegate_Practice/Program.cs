@@ -1,13 +1,14 @@
-﻿namespace Class_Stuct_Delegate_Practice
+﻿
+namespace Class_Stuct_Delegate_Practice
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // create Store
+            //INSTANCE OF STORE CLASS
             Store store = new Store("Mini Mart");
 
-            //Create Product
+            //INSTANCE OF PRODUCT STRUCT
             Product milk = new Product("Milk" , 50);
             Product bread = new Product("bread", 20);
             Product soda = new Product("Soda", 40);
@@ -22,12 +23,10 @@
 
             Console.WriteLine();
 
-            //DELETE PRODUCT
-            store.DeleteProduct(milk, (product) =>
-            {
-                Console.WriteLine($"DELETED PRODUCT: {product.PrdName}");
-                return 1;
-            });
+            // DELETE PRODUCT
+            Console.WriteLine();
+            ProductService service = new ProductService();
+            store.DeleteProduct(milk,  service.DeleteProductService);
 
             //SHOW ALL PRODUCT
             Console.WriteLine();
@@ -35,14 +34,10 @@
 
             //SELL PRODUCT
             Console.WriteLine();
-            store.SellProduct("bread", (product) =>
-            {
-                return 2;
-            });
-
-            Console.WriteLine();
+            store.SellProduct("bread" , service.SoldProductService);
 
             //SHOW REMAINING PRODUCT
+            Console.WriteLine();
             store.ShowAllProduct();
         }
     }
