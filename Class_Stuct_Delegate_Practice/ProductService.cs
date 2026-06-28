@@ -11,7 +11,7 @@ namespace Class_Stuct_Delegate_Practice
     {
 
         #region -- FOR DELEGATE --
-        // PANG DELEGATE
+   
         public int DeleteProductService(Product product)
         {
             Console.WriteLine($"DELETED SERVICE/using DELIGATE.....: {product.PrdName}");

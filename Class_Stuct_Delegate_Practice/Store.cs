@@ -37,7 +37,7 @@ namespace Class_Stuct_Delegate_Practice
         public void DeleteProduct(Product product, ProductActionDelegate action)
         {
             products.Remove(product);
-            action(product);
+            action(product); // BY DELEGATE
 
             // INVOKE EVENT
             onProductDeleted?.Invoke(this, new ProductEventArgs
