@@ -1,6 +1,9 @@
 ﻿using OOP__Abstract__Interface_and_Generic.Abstraction;
+using OOP__Abstract__Interface_and_Generic.Abstraction_VS_Interface;
 using OOP__Abstract__Interface_and_Generic.Encapsulation;
+using OOP__Abstract__Interface_and_Generic.Generic;
 using OOP__Abstract__Interface_and_Generic.Polymorphism;
+
 
 namespace OOP__Abstract__Interface_and_Generic
 {
@@ -37,9 +40,47 @@ namespace OOP__Abstract__Interface_and_Generic
             Console.WriteLine("POLYMORPHISM...");
             SampleOperation operation = new SampleOperation();
             operation.Process();
+            Console.WriteLine();
+            #endregion
+
+            #region--ABSTRACT VS INTERFACE--
+
+            Console.WriteLine("ABSTRACT VS INTERFACE");
+
+            #region--ABSTRACT--
+            var pdf = new PDF();
+            var word = new WORD();
+            Document pdfDoc = new PDF();
+            Document wordDoc = new WORD();
+
+            var excel = new Excel();
+            IDokumento document = new Excel();
+            document.Print();
+
+
+            WORD newWord = new WORD();
+            IDoc1 document1 = new newDocument();
+            IDoc2 document2 = new newDocument();
+
+            Console.WriteLine();
+
+
             #endregion
 
 
+
+
+            #endregion
+
+            #region--GENERIC--
+            Console.WriteLine("GENERIC....");
+            var processor = new SampleGeneric<tagaAdd>();
+            processor.Process(5, 5);
+
+            var procesor = new SampleGeneric<tagaMinus>();
+            processor.Process(5, 5);
+
+            #endregion
         }
     }
 }

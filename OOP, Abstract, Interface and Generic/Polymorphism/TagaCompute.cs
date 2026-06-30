@@ -7,7 +7,7 @@ namespace OOP__Abstract__Interface_and_Generic.Polymorphism
    public abstract class TagaCompute
     {
 
-        private string _secureData; // accesible only within this class
+        private string _secureData; // accesible only within this class encapsulated fields
         protected int _result; // protected - accesible only within this class and those who inherited this
 
         public int result
