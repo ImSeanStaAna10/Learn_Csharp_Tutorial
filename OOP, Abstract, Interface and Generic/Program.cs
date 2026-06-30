@@ -48,37 +48,69 @@ namespace OOP__Abstract__Interface_and_Generic
             Console.WriteLine("ABSTRACT VS INTERFACE");
 
             #region--ABSTRACT--
+            
+            //NORMAL INSTANTIATON
             var pdf = new PDF();
             var word = new WORD();
-            Document pdfDoc = new PDF();
-            Document wordDoc = new WORD();
-
-            var excel = new Excel();
-            IDokumento document = new Excel();
-            document.Print();
+            //ASBTRACTED document class and inherited by its subclass
+            pdf.Process();
+            word.Print();
 
 
-            WORD newWord = new WORD();
-            IDoc1 document1 = new newDocument();
-            IDoc2 document2 = new newDocument();
-
-            Console.WriteLine();
 
 
             #endregion
 
+            #region--INTERFACE--
+            //UPCASTING nirereference natin yung base class na Document means maacess lang natin yung members/method ng class nato
+            Document pdfDoc = new PDF();
+            Document wordDoc = new WORD();
+            pdfDoc.Print();
+            wordDoc.Print();
 
+
+            //NORMAL INSTANTIATION
+            var excel = new Excel();
+            excel.Process();
+
+            //UPCASTING
+            IDokumento document = new Excel();
+            document.Process();
+
+
+            WORD newWord = new WORD();
+            newWord.Process();
+            newWord.Print();
+
+            //UPCASTING
+            IDoc1 document1 = new newDocument();
+            document1.sayName();
+
+            //UPCASTING
+            newDocument bagongDocument = new newDocument();
+            Console.WriteLine("Example instantiation newDocument class");
+            bagongDocument.Print();
+            bagongDocument.sayName();
+
+            Console.WriteLine();
+            #endregion
 
 
             #endregion
 
             #region--GENERIC--
             Console.WriteLine("GENERIC....");
-            var processor = new SampleGeneric<tagaAdd>();
+
+            Console.WriteLine("Generic with 1type parameter");
+            var processor = new SampleGeneric<tagaAdd>(); // yung T now is  tagaAdd which is childClass ng TagaCompute baseclass natin
             processor.Process(5, 5);
 
             var procesor = new SampleGeneric<tagaMinus>();
             processor.Process(5, 5);
+
+            Console.WriteLine("Generic With MultipleTypes of paramater");
+            var newProcessor = new SampleMultiType<tagaAdd, SampleGeneric<tagaMinus>>();
+            newProcessor.startexecute(10, 5);
 
             #endregion
         }

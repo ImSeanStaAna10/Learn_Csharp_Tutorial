@@ -7,20 +7,30 @@ namespace OOP__Abstract__Interface_and_Generic.Abstraction_VS_Interface
     public abstract class Document
     {
         public string Name { get; set; }
-        public void Process(){}
-        public abstract void Print();
-    }
+        public void Process(){
+            Console.WriteLine("Processing ... This is a Method come from base abstract class document");
+        }
+        public abstract void Print(); // ABSTRACT METHOD - need Ioveride ng mga nag inherit and make own implementation
+    }   
 
     public class PDF: Document
     {
-        public override void Print() { }
+        public override void Print() {
+            Console.WriteLine("Printing PDF....");
+        }
     }
 
     public class WORD: Document
     {
-        public override void Print() { }
+        public override void Print() {
+            Console.WriteLine("Printing Word.....");
+        }
     }
 
+
+
+
+    // INTERFACE - parang contract - so subclass must have whats the interface given req
     public interface IDokumento
     {
         string name { get; set;  }
@@ -36,9 +46,38 @@ namespace OOP__Abstract__Interface_and_Generic.Abstraction_VS_Interface
         public void Process() { }
     }
 
-    public interface IDoc1 { }
-    public interface IDoc2 { }
+    public interface IDoc1 {
+
+        //contract requirement to have kung sino man mag iinherit neto 
+        string myName { get; set; } 
+        void sayName();
+    
+    }
+    
 
 
-    public class newDocument : WORD, IDoc1, IDoc2 { }
+    //COMBINATION OF Inheritance , abstraction ,  interface
+    //lIMTED lang sa oneclass ang pwede Iinherit 
+    public class newDocument : WORD, IDoc1 {
+
+        public string myName { get; set; }
+
+        public newDocument(string MyName = "Sean")
+        {
+            myName = MyName;
+        }
+        public override void Print()
+        {
+            Console.WriteLine("Printing from (newDocument) class");
+        }
+
+        public void sayName()
+        {
+            Console.WriteLine($"My Name is {myName}");
+        }
+
+
+    
+    
+    }
 }
